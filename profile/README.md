@@ -2,8 +2,12 @@
 ## This is a work in progress.
 
 Where are the packages? https://build.opensuse.org/project/show/home:tduck:filotimoproject
+
 Where is the image built? https://github.com/filotimo-project/filotimo
+
 Where can I download an ISO? In the latest run of https://github.com/filotimo-project/filotimo/actions/workflows/make_iso.yml
+
+How can I contribute? Contact me, or simply submit a pull request :)
 
 ## What's improved from normal Fedora Atomic
 
