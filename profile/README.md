@@ -7,7 +7,7 @@ Where is the image built? https://github.com/filotimo-project/filotimo
 
 Where can I download an ISO? In the latest run of https://github.com/filotimo-project/filotimo/actions/workflows/make_iso.yml
 
-How can I contribute? Contact me, or simply submit a pull request :)
+How can I contribute? Contact @tduck973564, or simply submit a pull request :)
 
 ## What's improved from normal Fedora Atomic
 
