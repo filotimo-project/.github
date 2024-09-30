@@ -113,3 +113,4 @@ This is only a few rough ideas of what we want to include.
 - Waydroid integration
 - A GUI to view, create and enter distroboxes.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
+- A nice website and hosting solution
