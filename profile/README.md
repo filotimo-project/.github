@@ -111,6 +111,6 @@ This is only a few rough ideas of what we want to include.
 - A graphical utility to run Windows apps in a Docker container and integrate them with the rest of the system through FreeRDP - something like WinApps but more elegant
 - A small utility to prompt the user to either look for a Linux alternative, install Bottles or create a VM (link to documentation) when they attempt to open an .exe
 - Waydroid integration
-- A GUI to view, create and enter distroboxes.
+- A Kirigami GUI to manage distroboxes and containers.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
 - A nice website and hosting solution
