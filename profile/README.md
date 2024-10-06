@@ -51,7 +51,7 @@ vm.watermark_boost_factor = 0
 vm.watermark_scale_factor = 125
 vm.page-cluster = 0
 ```
-are all set, improving performance with zram, which is configured to 1.5 times the system memory amount with the zstd compression algorithm. This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
+are all set, improving performance with zram, which is configured to 1.5 times the system memory amount. This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
 - Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
