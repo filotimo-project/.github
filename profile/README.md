@@ -26,7 +26,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - A variety of useful KDE utilities are preinstalled as Flatpaks.
 - Various codecs are installed, including libheif, x265 and libdvdcss. This allows video to simply work, which it does not on stock Fedora. OpenH264 is configured to install itself immediately after first boot, which is important for playback and video conferencing.
 - VA-API and libva drivers are preinstalled, allowing for hardware acceleration out-of-the-box, improving battery life.
-- Extra printer drivers, firmware, a multitude of kernel modules, udev rules, the fsync kernel and, optionally, NVIDIA drivers are preinstalled, improving compatibility with a wide range of hardware including and not limited to DisplayLink docks, Xbox controllers, Razer hardware, RGB hardware, ThinkPads, Mediatek WiFi adapters and much more.
+- Extra printer drivers, firmware, a multitude of kernel modules, udev rules, the bazzite kernel and, optionally, NVIDIA drivers are preinstalled, improving compatibility with a wide range of hardware including and not limited to DisplayLink docks, Xbox controllers, Razer hardware, RGB hardware, ThinkPads, Mediatek WiFi adapters and much more.
 - Kup is preinstalled, which is the KDE backup tool.
 - Virt-manager, podman, docker, and distrobox are preinstalled for easy virtualisation and container workflows.
 - Virt-manager is wrapped with a helper script which temporarily disables SELinux before use, due to some incompatibilities.
@@ -42,6 +42,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 
 ## Changes at the system level
 - `sudo` inherits locale settings and QT/KDE environment variables.
+- `sudo` is aliased to `run0` on the `fish` shell.
 - Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is Inter Variable, and the default monospace typeface is IBM Plex Mono.
 - `vm.max_map_count` is increased to `2147483642`, mainly improving compatibility with some Windows games.
 - `zram` is configured differently to stock Fedora:
@@ -53,18 +54,18 @@ vm.page-cluster = 0
 ```
 are all set, improving performance with zram, which is configured [to 2 times the system memory amount](https://issuetracker.google.com/issues/227605780). This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
 See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-os/default-settings/pull/163
-- TuneD is used instead of Power Profiles Daemon, and is configured to not change swappiness.
+- TuneD is configured to not change swappiness.
 - Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
-- The fsync kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
+- The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
 
 ## Changes affecting KDE
 - This ships with some changes to the Breeze theme:
     - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark.
     - The panel is no longer floating by default, as it's somewhat buggy and an inefficient use of space. It's also made taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
-    - Klassy titlebars are used, which have nicer icons, padding and shadows.
+    - Klassy titlebars are used, which have nicer buttons, icons and padding.
     - The default font for the UI is Inter Variable.
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
