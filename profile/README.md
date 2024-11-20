@@ -69,9 +69,11 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
     - The default font for the UI is Inter Variable.
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
+    - Kickoff no longer has action button captions enabled.
 - Discover is configured to automatically update your system weekly.
 - Spectacle automatically copies your screenshots to the clipboard.
 - KWrite immediately opens to a new document instead of the welcome view.
+- Text files open in KWrite by default, rather than Kate.
 - The screen dims when you're prompted to enter your password for authorization.
 - KRunner uses Google by default.
 - Plasma automatically starts with an empty session, instead of the somewhat broken saved session functionality.
