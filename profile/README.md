@@ -1,4 +1,5 @@
-# filotimo Project
+<img src="https://github.com/filotimo-project/branding/blob/main/banner-lightbackground.png?raw=true" alt="filotimo" width="450"/>
+
 ## This is a work in progress.
 
 Where are the packages? https://build.opensuse.org/project/show/home:tduck:filotimoproject
