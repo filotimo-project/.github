@@ -43,7 +43,6 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 
 ## Changes at the system level
 - `sudo` inherits locale settings and QT/KDE environment variables.
-- `sudo` is aliased to `run0` on the `fish` shell.
 - Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is Inter Variable, and the default monospace typeface is IBM Plex Mono.
 - `vm.max_map_count` is increased to `2147483642`, mainly improving compatibility with some Windows games.
 - `zram` is configured differently to stock Fedora:
