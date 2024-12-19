@@ -3,7 +3,7 @@
 ## [Download an ISO here](https://nightly.link/filotimo-project/filotimo/workflows/make_iso/main/filotimo-latest-41.iso)
 ## This is a work in progress.
 
-Where are the packages? https://build.opensuse.org/project/show/home:tduck:filotimoproject
+Where are the packages? https://copr.fedorainfracloud.org/coprs/tduck973564/filotimo-packages/
 
 Where is the image built? https://github.com/filotimo-project/filotimo
 
