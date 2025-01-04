@@ -60,7 +60,7 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
 - The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
-- The BORE scheduler is used by default.
+- The BORE scheduler is used by default - as per Bazzite and CachyOS, improving responsiveness under load and improving gaming performance.
 - Users are automatically appended to `adbusers` group to ensure compatibility with Android udev rules.
 - Users are automatically appended to `plugdev` group to ensure compatibility with Yubikey udev rules.
 - Open file and memory lock limits are increased for compatibility with certain software and emulators.
