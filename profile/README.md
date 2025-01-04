@@ -112,7 +112,6 @@ kernel.split_lock_mitigate=0
 #### UX
 - Firefox will use the KDE file picker by default instead of the GTK one.
 - Firefox will ask where to save each file by default.
-- The Plasma Integration extension is installed by default.
 
 #### Performance
 - Prefetching is enabled by default for reduced slowness.
