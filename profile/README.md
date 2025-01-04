@@ -62,7 +62,7 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
 - The BORE scheduler is used by default.
 - Users are automatically appended to `adbusers` group to ensure compatibility with Android udev rules.
-- Users are automatically appended to `plugdev` group to ensure compatibility with Yubikey udev rules.\
+- Users are automatically appended to `plugdev` group to ensure compatibility with Yubikey udev rules.
 - Open file and memory lock limits are increased for compatibility with certain software and emulators.
 - `inotify` limits are increased.
 - The following are set for improved networking and memory performance.
