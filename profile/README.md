@@ -60,6 +60,25 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
 - The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
+- The BORE scheduler is used by default.
+- Users are automatically appended to `adbusers` group to ensure compatibility with Android udev rules.
+- Users are automatically appended to `plugdev` group to ensure compatibility with Yubikey udev rules.\
+- Open file and memory lock limits are increased for compatibility with certain software and emulators.
+- `inotify` limits are increased.
+- The following are set for improved networking and memory performance.
+```
+vm.vfs_cache_pressure=66
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
+kernel.split_lock_mitigate=0
+```
+- Dirty centisec values are dynamically determined for storage hardware.
+- IO schedulers are dynamically determined - using Kyber for fast SSDs and BFQ for rotational devices.
+- minimum-free, dirty ratio and bytes, dirty background ratio and bytes, and zram compression algorithm are dynamically determined. If physical memory is below 16GiB, `zstd` is used rather than `lzo-rle`.
+- Full preempt is enabled by default.
+- The following are applied to the system's default btrfs subvolumes in fstab, improving disk performance and reducing unnecessary writes - `noatime,lazytime,commit=120,discard=async,compress=zstd:1,space_cache=v2`
+- Some kernel module fixes are automatically applied for Surface and Framework devices.
+- `s2idle` sleep is used by default for systems with the NVIDIA driver and hardware.
 
 ## Changes affecting KDE
 - This ships with some changes to the Breeze theme:
@@ -84,6 +103,10 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - Konsole is shipped with a nicer profile by default.
 - Some new icons are shipped for supergfxctl and SELinux Troubleshooter and generic icons are used for Fcitx, improving their visual integration with the rest of the system.
 - Some convenience scripts are included with `ujust` for setting up and using a KDE development environment in a Distrobox, even allowing you to enter the Plasma session built with `kde-builder`!
+- Libreoffice document templates are included.
+- Some nicer wallpapers are included.
+- The SDDM background can be set, which isn't possible on base Kinoite.
+- Accent colours are properly applied to Flatpaks using Breeze-GTK.
 
 ### Changes to Firefox
 #### UX
@@ -94,13 +117,17 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - Prefetching is enabled by default for reduced slowness.
 - The minimum threshold for low memory is raised to 750MB of memory free.
 - Browser tabs will unload themselves when memory is constrained.
+- WebRender is enabled by default.
+- Certain network IO options with quite antiquated defaults are fixed, improving browsing performance.
 
 #### Privacy and security
 - The vast majority of Mozilla telemetry is disabled.
 - Tracking protection is set up with more strict options by default out of the box.
 - HTTPS-only mode is enabled by default.
 - Global Privacy Control is enabled by default.
-- Trending search suggestions and Firefox Relay are disabled by default.
+- Trending search suggestions, Firefox Relay and Pocket are disabled by default.
+- Suggestion and extension recommendations while you browse are disabled by default.
+- Fingerprinting protection and Global Privacy Control are enabled by default.
 
 #### Multimedia
 - Widevine is enabled by default, allowing use of DRM protected sites like Netflix.
