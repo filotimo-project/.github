@@ -129,7 +129,6 @@ kernel.split_lock_mitigate=0
 - Trending search suggestions, Firefox Relay and Pocket are disabled by default.
 - Suggestion and extension recommendations while you browse are disabled by default.
 - Fingerprinting protection and Global Privacy Control are enabled by default.
-- uBlock Origin is installed by default.
 
 #### Multimedia
 - Widevine is enabled by default, allowing use of DRM protected sites like Netflix.
