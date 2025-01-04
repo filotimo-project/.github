@@ -75,7 +75,7 @@ kernel.split_lock_mitigate=0
 - Dirty centisec values are dynamically determined for storage hardware.
 - IO schedulers are dynamically determined - using Kyber for fast SSDs and BFQ for rotational devices.
 - minimum-free, dirty ratio and bytes, dirty background ratio and bytes, and zram compression algorithm are dynamically determined. If physical memory is below 16GiB, `zstd` is used rather than `lzo-rle`.
-- Full preempt is enabled by default.
+- Full preempt is enabled by default - this reduces raw throughput but significantly improves latency and responsiveness on the desktop.
 - The following are applied to the system's default btrfs subvolumes in fstab, improving disk performance and reducing unnecessary writes - `noatime,lazytime,commit=120,discard=async,compress=zstd:1,space_cache=v2`
 - Some kernel module fixes are automatically applied for Surface and Framework devices.
 - `s2idle` sleep is used by default for systems with the NVIDIA driver and hardware.
