@@ -107,6 +107,8 @@ kernel.split_lock_mitigate=0
 - Some nicer wallpapers are included.
 - The SDDM background can be set, which isn't possible on base Kinoite.
 - Accent colours are properly applied to Flatpaks using Breeze-GTK.
+- Dolphin remembers view and sorting settings for each individual folder.
+- Dolphin has its Git integration enabled by default.
 
 ### Changes to Firefox
 #### UX
