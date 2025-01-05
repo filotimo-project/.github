@@ -109,6 +109,7 @@ kernel.split_lock_mitigate=0
 - Accent colours are properly applied to Flatpaks using Breeze-GTK.
 - Dolphin remembers view and sorting settings for each individual folder.
 - Dolphin has its Git integration enabled by default.
+- Dark titlebars are used by default for Discord, Vesktop and Spotify.
 
 ### Changes to Firefox
 #### UX
