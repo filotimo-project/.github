@@ -46,16 +46,17 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - `sudo` inherits locale settings and QT/KDE environment variables.
 - Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is Inter Variable, and the default monospace typeface is IBM Plex Mono.
 - `vm.max_map_count` is increased to `2147483642`, mainly improving compatibility with some Windows games.
-- `zram` is configured differently to stock Fedora:
+- `zram` is configured differently to stock Fedora, with the following options set:
 ```
 vm.swappiness = 180
 vm.watermark_boost_factor = 0
 vm.watermark_scale_factor = 125
 vm.page-cluster = 0
+vm.vfs_cache_pressure=66
 ```
-are all set, improving performance with zram, which is configured [to 2 times the system memory amount](https://issuetracker.google.com/issues/227605780). This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
+, improving performance with zram, which is configured [to 2 times the system memory amount](https://issuetracker.google.com/issues/227605780). This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
 See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-os/default-settings/pull/163
-- TuneD is configured to not change swappiness.
+- `zram` automatically uses `zstd` instead of the default `lzo-rle` on systems with 16GiB of RAM or below, significantly increasing the compression ratio, albeit with a less significant performance penalty.
 - Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
@@ -65,32 +66,39 @@ See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-o
 - Users are automatically appended to `plugdev` group to ensure compatibility with Yubikey udev rules.
 - Open file and memory lock limits are increased for compatibility with certain software and emulators.
 - `inotify` limits are increased.
-- The following are set for improved networking and memory performance.
+- The following are set for improved networking performance:
 ```
-vm.vfs_cache_pressure=66
 net.core.default_qdisc=fq
+net.core.netdev_max_backlog=16384
+net.core.somaxconn=8192
 net.ipv4.tcp_congestion_control=bbr
-kernel.split_lock_mitigate=0
+net.ipv4.tcp_fastopen=3
+```
+- The following are set for improved kernel hardening:
+```
+kernel.kexec_load_disabled=1
+kernel.kptr_restrict=1
 ```
 - Dirty centisec values are dynamically determined for storage hardware.
 - IO schedulers are dynamically determined - using Kyber for fast SSDs and BFQ for rotational devices.
 - minimum-free, dirty ratio and bytes, dirty background ratio and bytes, and zram compression algorithm are dynamically determined. If physical memory is below 16GiB, `zstd` is used rather than `lzo-rle`.
-- Full preempt is enabled by default - this reduces raw throughput but significantly improves latency and responsiveness on the desktop.
+- Full preempt is enabled by default - this reduces raw throughput but improves latency and responsiveness on the desktop.
 - The following are applied to the system's default btrfs subvolumes in fstab, improving disk performance and reducing unnecessary writes - `noatime,lazytime,commit=120,discard=async,compress=zstd:1,space_cache=v2`
 - Some kernel module fixes are automatically applied for Surface and Framework devices.
 - `s2idle` sleep is used by default for systems with the NVIDIA driver and hardware.
 
 ## Changes affecting KDE
 - This ships with some changes to the Breeze theme:
-    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark.
-    - The panel is no longer floating by default, as it's somewhat buggy and an inefficient use of space. It's also made taller to improve padding.
+    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/libplasma/-/merge_requests/1252))
+    - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
     - Klassy titlebars are used, which have nicer buttons, icons and padding.
     - The default font for the UI is Inter Variable.
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
     - Kickoff no longer has action button captions enabled.
-- Discover is configured to automatically update your system weekly.
+    - Anticipating changes to Kickoff in 6.3, category switching on hover has been explicitly enabled.
+- Discover is configured to automatically update your system daily.
 - Spectacle automatically copies your screenshots to the clipboard.
 - KWrite immediately opens to a new document instead of the welcome view.
 - Text files open in KWrite by default, rather than Kate.
@@ -143,7 +151,7 @@ This is only a few rough ideas of what we want to include.
 - Graphical utilities to see and change the SELinux state and configure Secure Boot easily.
 - A storage page in System Settings to easily clear wasted disk space and view storage status.
 - An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if some important service keeps crashing, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
-- A settings page for (rpm-)ostree, which allows easy configuration of various options and allows easy rebasing to different Filotimo images, as well as allowing you to adjust some system level settings (such as hostname and environment vars)
+- A settings page for (rpm-)ostree, which allows easy configuration of various options and allows easy rebasing to different Filotimo images, as well as allowing you to adjust some system level settings (such as hostname and environment vars) with some YaST-esque sysadmin tools that are unified under a System Administration KCM.
 - A graphical utility to run Windows apps in a Docker container and integrate them with the rest of the system through FreeRDP - something like WinApps but more elegant
 - A small utility to prompt the user to either look for a Linux alternative, install Bottles or create a VM (link to documentation) when they attempt to open an .exe
 - Waydroid integration
