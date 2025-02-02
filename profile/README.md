@@ -89,7 +89,7 @@ kernel.kptr_restrict=1
 
 ## Changes affecting KDE
 - This ships with some changes to the Breeze theme:
-    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/libplasma/-/merge_requests/1252))
+    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506))
     - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
     - Klassy titlebars are used, which have nicer buttons, icons and padding.
