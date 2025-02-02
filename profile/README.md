@@ -56,7 +56,7 @@ vm.vfs_cache_pressure=66
 ```
 , improving performance with zram, which is configured [to 2 times the system memory amount](https://issuetracker.google.com/issues/227605780). This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
 See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-os/default-settings/pull/163
-- `zram` automatically uses `zstd` instead of the default `lzo-rle` on systems with 16GiB of RAM or below, significantly increasing the compression ratio, albeit with a less significant performance penalty.
+- `zram` automatically uses `zstd` instead of the default `lzo-rle` on systems with 16GiB of RAM or below, significantly increasing the compression ratio, albeit incurring a less significant performance penalty.
 - Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
 - An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
@@ -81,7 +81,7 @@ kernel.kptr_restrict=1
 ```
 - Dirty centisec values are dynamically determined for storage hardware.
 - IO schedulers are dynamically determined - using Kyber for fast SSDs and BFQ for rotational devices.
-- minimum-free, dirty ratio and bytes, dirty background ratio and bytes, and zram compression algorithm are dynamically determined. If physical memory is below 16GiB, `zstd` is used rather than `lzo-rle`.
+- minimum-free, dirty ratio and bytes, dirty background ratio and bytes, and zram compression algorithm are dynamically determined.
 - Full preempt is enabled by default - this reduces raw throughput but improves latency and responsiveness on the desktop.
 - The following are applied to the system's default btrfs subvolumes in fstab, improving disk performance and reducing unnecessary writes - `noatime,lazytime,commit=120,discard=async,compress=zstd:1,space_cache=v2`
 - Some kernel module fixes are automatically applied for Surface and Framework devices.
