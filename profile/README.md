@@ -1,6 +1,6 @@
 <img src="https://github.com/filotimo-project/branding/blob/main/banner-lightbackground.png?raw=true" alt="filotimo" width="450"/>
 
-## [Download an ISO here](https://nightly.link/filotimo-project/filotimo/workflows/make_iso/main/filotimo-latest-41.iso)
+## [Download an ISO here](https://nightly.link/filotimo-project/filotimo/workflows/build_iso/main/filotimo-latest-41)
 ## This is a work in progress.
 
 Where are the packages? https://copr.fedorainfracloud.org/coprs/tduck973564/filotimo-packages/
