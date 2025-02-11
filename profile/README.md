@@ -29,7 +29,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - AppImageLauncher is preinstalled. This allows easy integration of AppImages with the system.
 - Onedriver is preinstalled for easy access to OneDrive cloud storage.
 - A variety of useful KDE utilities are preinstalled as Flatpaks.
-- Various codecs are installed, including libheif, x265 and libdvdcss. This allows video to simply work, which it does not on stock Fedora. OpenH264 is configured to install itself immediately after first boot, which is important for playback and video conferencing.
+- Various codecs are installed, including libheif, x265, and hardware decode support for some non-free codecs. This allows video to simply work, which it does not on stock Fedora.
 - VA-API and libva drivers are preinstalled, allowing for hardware acceleration out-of-the-box, improving battery life.
 - Extra printer drivers, firmware, a multitude of kernel modules, udev rules, the bazzite kernel and, optionally, NVIDIA drivers are preinstalled, improving compatibility with a wide range of hardware including and not limited to DisplayLink docks, Xbox controllers, Razer hardware, RGB hardware, ThinkPads, Mediatek WiFi adapters and much more.
 - Kup is preinstalled, which is the KDE backup tool.
