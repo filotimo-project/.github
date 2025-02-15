@@ -121,6 +121,7 @@ kernel.kptr_restrict=1
 - Dolphin remembers view and sorting settings for each individual folder.
 - Dolphin has its Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
+- Stem darkening is enabled for all toolkits by default, improving font rendering consistency with Qt/KDE
 
 ### Changes to Firefox
 #### UX
