@@ -27,7 +27,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - The limited Fedora flatpak remotes are removed and replaced with the much better Flathub.
 - Homebrew is preinstalled. This allows easy installation of terminal utilities without needing a distrobox container.
 - AppImageLauncher is preinstalled. This allows easy integration of AppImages with the system.
-- Onedriver is preinstalled for easy access to OneDrive cloud storage.
+- `kio-onedrive` is preinstalled for easy access to OneDrive cloud storage.
 - A variety of useful KDE utilities are preinstalled as Flatpaks.
 - Various codecs are installed, including libheif, x265, and hardware decode support for some non-free codecs. This allows video to simply work, which it does not on stock Fedora.
 - VA-API and libva drivers are preinstalled, allowing for hardware acceleration out-of-the-box, improving battery life.
@@ -95,7 +95,6 @@ kernel.kptr_restrict=1
     - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506))
     - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
-    - Klassy titlebars are used, which have nicer buttons, icons and padding.
     - The default font for the UI is Inter Variable.
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
