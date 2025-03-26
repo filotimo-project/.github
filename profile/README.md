@@ -25,7 +25,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - The limited Fedora flatpak remotes are removed and replaced with the much better Flathub.
 - Homebrew is preinstalled. This allows easy installation of terminal utilities without needing a distrobox container.
 - AppImageLauncher is preinstalled. This allows easy integration of AppImages with the system.
-- `kio-onedrive` is preinstalled for easy access to OneDrive cloud storage.
+- `kio-onedrive` is preinstalled for easy access to OneDrive cloud storage through Dolphin and KDE's inbuilt Online Accounts integration.
 - A variety of useful KDE utilities are preinstalled as Flatpaks.
 - Various codecs are installed, including libheif, x265, and hardware decode support for some non-free codecs. This allows video to simply work, which it does not on stock Fedora.
 - VA-API and libva drivers are preinstalled, allowing for hardware acceleration out-of-the-box, improving battery life.
@@ -45,7 +45,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 
 ## Changes at the system level
 - `sudo` inherits locale settings and QT/KDE environment variables.
-- Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is Inter Variable, and the default monospace typeface is IBM Plex Mono.
+- Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is [Filotimo Sans](https://github.com/filotimo-project/fonts), and the default monospace typeface is IBM Plex Mono.
 - `vm.max_map_count` is increased to `2147483642`, mainly improving compatibility with some Windows games.
 - `zram` is configured differently to stock Fedora, with the following options set:
 ```
@@ -59,7 +59,6 @@ vm.vfs_cache_pressure=66
 See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-os/default-settings/pull/163
 - `zram` automatically uses `zstd` instead of the default `lzo-rle` on systems with 16GiB of RAM or below, significantly increasing the compression ratio, albeit incurring a less significant performance penalty.
 - Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
-- An environment variable is set which fixes wonky font rendering on HiDPI screens with KDE.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
 - The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
 - The BORE scheduler is used by default - as per Bazzite and CachyOS, improving responsiveness under load and improving gaming performance.
@@ -93,7 +92,7 @@ kernel.kptr_restrict=1
     - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506))
     - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
-    - The default font for the UI is Inter Variable.
+    - The default font for the UI is Inter, [customised with a disambiguated lowercase l](https://github.com/filotimo-project/fonts).
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
     - Kickoff no longer has action button captions enabled.
@@ -110,22 +109,23 @@ kernel.kptr_restrict=1
 - The automounter is fixed and enabled by default, and is configured to automatically mount all devices that were manually mounted once. This saves you from having to mess with fstab or the Partition Manager, potentially breaking your system.
 - Konsole is shipped with a nicer profile by default.
 - Some new icons are shipped for supergfxctl and SELinux Troubleshooter and generic icons are used for Fcitx, improving their visual integration with the rest of the system.
-- Some convenience scripts are included with `ujust` for setting up and using a KDE development environment in a Distrobox, even allowing you to enter the Plasma session built with `kde-builder`!
-- Libreoffice document templates are included.
+- Some convenience scripts are included with `ujust`, including:
+    - The commands built in to all ublue images - including one to quickly set up Davinci Resolve
+    - One which sets up a KDE development environment in a distrobox - even allowing you to log into it from SDDM!
+- LibreOffice document templates are included in `~/Templates`.
 - Some nicer wallpapers are included.
-- The SDDM background can be set, which isn't possible on base Kinoite.
-- Accent colours are properly applied to Flatpaks using Breeze-GTK.
+- The SDDM background can be set, which isn't possible on base Kinoite or Aurora.
+- Accent colours are properly applied to Flatpaks which use Breeze-GTK.
 - Dolphin remembers view and sorting settings for each individual folder.
-- Dolphin has its Git integration enabled by default.
+- Dolphin has Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
-- Stem darkening is enabled for all toolkits by default, improving font rendering consistency with Qt/KDE
 
 ### Changes to Firefox
 #### UX
 - Firefox will use the KDE file picker by default instead of the GTK one.
 - Firefox will ask where to save each file by default.
 
-#### Performance
+#### Performance (not a comprehensive list)
 - Prefetching is enabled by default for reduced slowness.
 - The minimum threshold for low memory is raised to 750MB of memory free.
 - Browser tabs will unload themselves when memory is constrained.
