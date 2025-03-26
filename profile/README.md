@@ -1,6 +1,6 @@
 <img src="https://github.com/filotimo-project/branding/blob/main/banner-lightbackground.png?raw=true" alt="filotimo" width="450"/>
 
-## [Download an ISO here](https://download.filotimoproject.org/filotimo-latest-41.iso), and [the checksum here](https://download.filotimoproject.org/filotimo-latest-41.iso-CHECKSUM)
+## [Download an ISO here](https://download.filotimoproject.org/filotimo-latest.iso), and [the checksum here](https://download.filotimoproject.org/filotimo-latest.iso-CHECKSUM)
 
 ## This is a work in progress.
 
