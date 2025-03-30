@@ -115,9 +115,8 @@ kernel.kptr_restrict=1
     - One which sets up a KDE development environment in a distrobox - even allowing you to log into it from SDDM!
 - LibreOffice document templates are included in `~/Templates`.
 - Some nicer wallpapers are included.
-- The SDDM background can be set, which isn't possible on base Kinoite or Aurora.
+- The SDDM background can be set, which isn't possible on base Kinoite.
 - Accent colours are properly applied to Flatpaks which use Breeze-GTK.
-- Dolphin remembers view and sorting settings for each individual folder.
 - Dolphin has Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
 - Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`
