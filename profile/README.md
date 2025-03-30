@@ -120,7 +120,8 @@ kernel.kptr_restrict=1
 - Dolphin remembers view and sorting settings for each individual folder.
 - Dolphin has Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
-- Some shortcuts in System Settings are added to these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`
+- Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`
+- `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurry icons with fractional scaling
 
 ### Changes to Firefox
 #### UX
