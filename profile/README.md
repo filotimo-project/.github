@@ -46,7 +46,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 
 ## Changes at the system level
 - `sudo` inherits locale settings and QT/KDE environment variables.
-- Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is [Filotimo Sans](https://github.com/filotimo-project/fonts), and the default monospace typeface is IBM Plex Mono.
+- Fonts are reconfigured as such: the default serif typeface is IBM Plex Serif, the default sans-serif typeface is Inter, and the default monospace typeface is IBM Plex Mono.
 - `vm.max_map_count` is increased to `2147483642`, mainly improving compatibility with some Windows games.
 - `zram` is configured differently to stock Fedora, with the following options set:
 ```
@@ -93,11 +93,13 @@ kernel.kptr_restrict=1
     - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506))
     - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
-    - The default font for the UI is Inter, [customised with a disambiguated lowercase l](https://github.com/filotimo-project/fonts).
+    - The default font for the UI is Inter.
     - The default monospace font is IBM Plex Mono.
     - Kickoff uses a list instead of a grid on the Favourites tab.
     - Kickoff no longer has action button captions enabled.
     - Anticipating changes to Kickoff in 6.3, category switching on hover has been explicitly enabled.
+    - The Dolphin icon has been set back to the generic file manager one, removing the actual Dolphin that was added.
+    - Discover has a customised, filotimo-branded icon.
 - Discover is configured to automatically update your system daily.
 - Spectacle automatically copies your screenshots to the clipboard.
 - KWrite immediately opens to a new document instead of the welcome view.
