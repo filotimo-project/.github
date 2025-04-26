@@ -121,8 +121,9 @@ kernel.kptr_restrict=1
 - Accent colours are properly applied to Flatpaks which use Breeze-GTK.
 - Dolphin has Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
-- Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`
-- `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurry icons with fractional scaling
+- Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`.
+- `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurry icons with fractional scaling.
+- The KDE Store is nuked out of orbit, with the Discover backend for it deleted and the popups for it disabled globally in Plasma. This is done because it floods Discover with a bunch of mostly low-res, botted wallpaper submissions and a bunch of broken themes - [many of which execute arbitrary code that can destroy your system and delete all your files.](https://blog.davidedmundson.co.uk/blog/kde-store-content/)
 
 ### Changes to Firefox
 #### UX
