@@ -41,7 +41,8 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - Some nicer and more professional-looking backgrounds are included with the system and the default background is changed.
 - Microsoft fonts (Calibri, Arial, etc) are preinstalled.
 - [Atychia](https://github.com/filotimo-project/atychia) is preinstalled, which is an in-house solution that allows you to recover your system if something goes awry or easily restart Plasmashell with a keyboard shortcut (Meta+Ctrl+Shift+B), rather than having to resort to an unfamiliar TTY.
-- There's a convenient shortcut in Kickoff that allows you to reboot to your Windows installation, assuming you have one installed.
+- There's a convenient shortcut in Kickoff that allows you to restart to your Windows installation, assuming you have one installed.
+- Furthermore, GRUB is hidden by default for a clean bootup experience, but is re-enabled if you force shutdown your system in case you need to rollback your system image.
 - You get all the relatively up-to-date packages and new technologies that Fedora with KDE provides. Expect better Wayland support and support for things like fractional scaling, variable refresh rate, HDR, and so on (an X11 session is not preinstalled and use of one is not supported by this project).
 
 ## Changes at the system level
