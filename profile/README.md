@@ -8,7 +8,7 @@ Where are the packages? https://copr.fedorainfracloud.org/coprs/tduck973564/filo
 
 Where is the image built? https://github.com/filotimo-project/filotimo
 
-Where can I download an ISO? In the latest run of https://github.com/filotimo-project/filotimo/actions/workflows/make_iso.yml
+Where can I download an ISO? [Here.](https://download.filotimoproject.org/filotimo-latest.iso)
 
 How can I contribute? Contact @tduck973564, or simply submit a pull request :)
 
