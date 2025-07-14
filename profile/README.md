@@ -30,11 +30,10 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - Various codecs are installed, including libheif, x265, and hardware decode support for some non-free codecs. This allows video to simply work, which it does not on stock Fedora.
 - VA-API and libva drivers are preinstalled, allowing for hardware acceleration out-of-the-box, improving battery life.
 - Extra printer drivers, firmware, a multitude of kernel modules, udev rules, the bazzite kernel and, optionally, NVIDIA drivers are preinstalled, improving compatibility with a wide range of hardware including and not limited to DisplayLink docks, Xbox controllers, Razer hardware, RGB hardware, ThinkPads, Mediatek WiFi adapters and much more.
-- Kup is preinstalled, which is the KDE backup tool.
 - Virt-manager, podman, docker, and distrobox are preinstalled for easy virtualisation and container workflows.
-- Virt-manager is wrapped with a helper script which temporarily disables SELinux before use, due to some incompatibilities.
-- Samba and kdenetwork-filesharing are included and preconfigured for filesharing over a local network. This is usually quite annoying to configure, but will now just work through Dolphin.
-- firewall-config is preinstalled for easy UI-based firewall configuration.
+- Virt-manager is set up to work properly with SELinux.
+- Samba and kdenetwork-filesharing are included and preconfigured for filesharing over a local network. This is usually quite annoying to configure, but will now just work through Dolphin. A patched kdenetwork-filesharing is installed with much better UX.
+- firewall-config is preinstalled for easy UI-based firewall configuration and has a shortcut in System Settings. 
 - supergfxctl is included on NVIDIA images to control hybrid graphics systems.
 - `fish` is installed as the default shell. Don't worry! It's wrapped with a script so `/etc/profile` still works.
 - Fcitx is installed and configured out of the box for easy use of IME and other keyboard layouts.
@@ -42,7 +41,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - Microsoft fonts (Calibri, Arial, etc) are preinstalled.
 - [Atychia](https://github.com/filotimo-project/atychia) is preinstalled, which is an in-house solution that allows you to recover your system if something goes awry or easily restart Plasmashell with a keyboard shortcut (Meta+Ctrl+Shift+B), rather than having to resort to an unfamiliar TTY.
 - There's a convenient shortcut in Kickoff that allows you to restart to your Windows installation, assuming you have one installed.
-- Furthermore, GRUB is hidden by default for a clean bootup experience, but is re-enabled if you force shutdown your system in case you need to rollback your system image.
+- Furthermore, GRUB is hidden by default for a clean bootup experience, but re-enables itself if you force shutdown your system in case you need to rollback your system image.
 - You get all the relatively up-to-date packages and new technologies that Fedora with KDE provides. Expect better Wayland support and support for things like fractional scaling, variable refresh rate, HDR, and so on (an X11 session is not preinstalled and use of one is not supported by this project).
 
 ## Changes at the system level
@@ -60,7 +59,7 @@ vm.vfs_cache_pressure=66
 , improving performance with zram, which is configured [to 2 times the system memory amount](https://issuetracker.google.com/issues/227605780). This should significantly improve responsiveness on memory-constrained systems, and even slightly improve things on normal systems. zram is a much more desirable and much faster alternative to disk-based swap, which other distros such as Mint use.
 See https://github.com/ublue-os/bazzite/issues/1570 and https://github.com/pop-os/default-settings/pull/163
 - `zram` automatically uses `zstd` instead of the default `lzo-rle` on systems with 16GiB of RAM or below, significantly increasing the compression ratio, albeit incurring a less significant performance penalty.
-- Some environment variables are set to improve NVIDIA compatibility with Firefox, and to improve the experience with OBS Studio.
+- Dynamic rebalancing of BTRFS file systems is enabled by default.
 - Users can mount drives without authentication (through graphical interfaces), which also fixes the KDE automounter.
 - The bazzite kernel is preinstalled, which ships with much better hardware compatibility and increased performance.
 - The BORE scheduler is used by default - as per Bazzite and CachyOS, improving responsiveness under load and improving gaming performance.
@@ -91,7 +90,7 @@ kernel.kptr_restrict=1
 
 ## Changes affecting KDE
 - This ships with some changes to the Breeze theme:
-    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506))
+    - The dark theme uses a more neutral, darker and more appealing color palette compared to Breeze Dark (which has been [upstreamed as of 6.4](https://invent.kde.org/plasma/breeze/-/merge_requests/506)).
     - The default panel has been made slightly taller to improve padding.
     - The accent colour is a darker and deeper blue compared to Breeze.
     - The default font for the UI is Inter.
@@ -99,20 +98,19 @@ kernel.kptr_restrict=1
     - Kickoff uses a list instead of a grid on the Favourites tab.
     - Kickoff no longer has action button captions enabled.
     - Anticipating changes to Kickoff in 6.3, category switching on hover has been explicitly enabled.
-    - The Dolphin icon has been set back to the generic file manager one, removing the actual Dolphin that was added.
+    - The Dolphin icon has been set back to the generic file manager one, removing the actual dolphin that was added.
     - Discover has a customised, filotimo-branded icon.
 - Discover is configured to automatically update your system daily.
 - Spectacle automatically copies your screenshots to the clipboard.
 - KWrite immediately opens to a new document instead of the welcome view.
 - Text files open in KWrite by default, rather than Kate.
-- The screen dims when you're prompted to enter your password for authorization.
 - KRunner uses Google by default.
 - Plasma automatically starts with an empty session, instead of the somewhat broken saved session functionality.
 - KRunner floats in the middle of the screen instead of being at the top.
 - `kdesu` uses sudo by default instead of su, since Fedora and by extension Filotimo locks the root account.
 - The automounter is fixed and enabled by default, and is configured to automatically mount all devices that were manually mounted once. This saves you from having to mess with fstab or the Partition Manager, potentially breaking your system.
 - Konsole is shipped with a nicer profile by default.
-- Some new icons are shipped for supergfxctl and SELinux Troubleshooter and generic icons are used for Fcitx, improving their visual integration with the rest of the system.
+- Some new icons are shipped for supergfxctl and generic icons are used for Fcitx, improving their visual integration with the rest of the system.
 - Some convenience scripts are included with `ujust`, including:
     - The commands built in to all ublue images - including one to quickly set up Davinci Resolve
     - One which sets up a KDE development environment in a distrobox - even allowing you to log into it from SDDM!
@@ -123,7 +121,7 @@ kernel.kptr_restrict=1
 - Dolphin has Git integration enabled by default.
 - Dark titlebars are used by default for Discord, Vesktop and Spotify.
 - Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`.
-- `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurry icons with fractional scaling.
+- `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurriness with fractional scaling.
 - The KDE Store is nuked out of orbit, with the Discover backend for it deleted and the popups for it disabled globally in Plasma. This is done because it floods Discover with a bunch of mostly low-res, botted wallpaper submissions and a bunch of broken themes - [many of which execute arbitrary code that can destroy your system and delete all your files.](https://blog.davidedmundson.co.uk/blog/kde-store-content/)
 
 ### Changes to Firefox
@@ -160,7 +158,7 @@ This is only a few rough ideas of what we want to include.
 - An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if some important service keeps crashing, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
 - A settings page for (rpm-)ostree, which allows easy configuration of various options and allows easy rebasing to different Filotimo images, as well as allowing you to adjust some system level settings (such as hostname and environment vars) with some YaST-esque sysadmin tools that are unified under a System Administration KCM.
 - A graphical utility to run Windows apps in a Docker container and integrate them with the rest of the system through FreeRDP - something like WinApps but more elegant
-- A small utility to prompt the user to either look for a Linux alternative, install Bottles or create a VM (link to documentation) when they attempt to open an .exe
+- A small utility to prompt the user to either look for a Linux alternative, install Bottles or create a VM (link to documentation) when they attempt to open an .exe -- see https://filotimoproject.org/appcompatibilityhelper
 - Waydroid integration
 - A Kirigami GUI to manage distroboxes and containers.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
