@@ -158,7 +158,7 @@ This is only a few rough ideas of what we want to include.
 - An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if some important service keeps crashing, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
 - A settings page for (rpm-)ostree, which allows easy configuration of various options and allows easy rebasing to different Filotimo images, as well as allowing you to adjust some system level settings (such as hostname and environment vars) with some YaST-esque sysadmin tools that are unified under a System Administration KCM.
 - A graphical utility to run Windows apps in a Docker container and integrate them with the rest of the system through FreeRDP - something like WinApps but more elegant
-- A small utility to prompt the user to either look for a Linux alternative, install Bottles or create a VM (link to documentation) when they attempt to open an .exe -- see https://filotimoproject.org/appcompatibilityhelper
+- ~~A small utility to prompt the user to either look for a Linux alternative or install Bottles or create a VM (link to documentation) when they attempt to open an .exe as well as for .deb or .rpm packages~~ -- DONE: https://filotimoproject.org/appcompatibilityhelper
 - Waydroid integration
 - A Kirigami GUI to manage distroboxes and containers.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
