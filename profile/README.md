@@ -41,7 +41,7 @@ This list also will not be comprehensive, but will be expanded as time goes on. 
 - Microsoft fonts (Calibri, Arial, etc) are preinstalled.
 - [Atychia](https://github.com/filotimo-project/atychia) is preinstalled, which is an in-house solution that allows you to recover your system if something goes awry or easily restart Plasmashell with a keyboard shortcut (Meta+Ctrl+Shift+B), rather than having to resort to an unfamiliar TTY.
 - There's a convenient shortcut in Kickoff that allows you to restart to your Windows installation, assuming you have one installed.
-- Furthermore, GRUB is hidden by default for a clean bootup experience, but re-enables itself if you force shutdown your system in case you need to rollback your system image.
+- Furthermore, GRUB is hidden by default for a clean bootup experience, but re-enables itself if you force shutdown your system in case you need to rollback your system image, or if you're restarting from a rollback deployment.
 - You get all the relatively up-to-date packages and new technologies that Fedora with KDE provides. Expect better Wayland support and support for things like fractional scaling, variable refresh rate, HDR, and so on (an X11 session is not preinstalled and use of one is not supported by this project).
 
 ## Changes at the system level
@@ -156,11 +156,13 @@ This is only a few rough ideas of what we want to include.
 
 - Graphical utilities to see and change the SELinux state and configure Secure Boot easily.
 - A storage page in System Settings to easily clear wasted disk space and view storage status.
-- An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if some important service keeps crashing, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
+- An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
+- A library for Qt/C++ that abstracts over bootc (and other things), asynchronously with QCoro/C++20 coroutines, which these utilities can be built upon.
 - A settings page for (rpm-)ostree, which allows easy configuration of various options and allows easy rebasing to different Filotimo images, as well as allowing you to adjust some system level settings (such as hostname and environment vars) with some YaST-esque sysadmin tools that are unified under a System Administration KCM.
+- A centralised Software Updates app, which updates brew, distroboxes and the system all at once. Also include things like CVE warnings, changelogs, and an auto-updater daemon. Discover's rpm-ostree integration is not very good, and not very fixable.
 - A graphical utility to run Windows apps in a Docker container and integrate them with the rest of the system through FreeRDP - something like WinApps but more elegant
 - ~~A small utility to prompt the user to either look for a Linux alternative or install Bottles or create a VM (link to documentation) when they attempt to open an .exe as well as for .deb or .rpm packages~~ -- DONE: https://filotimoproject.org/appcompatibilityhelper
-- Waydroid integration
+- Waydroid integration.
 - A Kirigami GUI to manage distroboxes and containers.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
 - A nice website and hosting solution -- SEE: https://filotimoproject.org/
