@@ -123,6 +123,7 @@ kernel.kptr_restrict=1
 - Some shortcuts in System Settings are added for these apps: `firewall-config`, AppImageLauncherSettings, Kleopatra, `kjournald`, and `systemdgenie`.
 - `QT_SCALE_FACTOR_ROUNDING_POLICY` is set to `Round` which fixes blurriness with fractional scaling.
 - The KDE Store is nuked out of orbit, with the Discover backend for it deleted and the popups for it disabled globally in Plasma. This is done because it floods Discover with a bunch of mostly low-res, botted wallpaper submissions and a bunch of broken themes - [many of which execute arbitrary code that can destroy your system and delete all your files.](https://blog.davidedmundson.co.uk/blog/kde-store-content/)
+- Plasma Vaults is removed. It's really broken and the UX sucks.
 
 ### Changes to Firefox
 #### UX
@@ -162,4 +163,5 @@ This is only a few rough ideas of what we want to include.
 - Waydroid integration
 - A Kirigami GUI to manage distroboxes and containers.
 - Proper Konsole integration with container-based workflows, like Ptyxis.
-- A nice website and hosting solution
+- A nice website and hosting solution -- SEE: https://filotimoproject.org/
+- Hook into `systemd` to set up a swapfile immediately before hibernating to make this work properly without having to have a swapfile all the time, see: https://gitlab.com/evlaV/steamos-customizations/-/commit/3d13dcb03258d237fc0a8dc9d3d74a1da7fe7385
