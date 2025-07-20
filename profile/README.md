@@ -155,6 +155,7 @@ kernel.kptr_restrict=1
 This is only a few rough ideas of what we want to include.
 
 - Graphical utilities to see and change the SELinux state and configure Secure Boot easily.
+- Switcheroo integration - SUPERGFX is pretty horrible.
 - A storage page in System Settings to easily clear wasted disk space and view storage status.
 - An alert system that notifies you if there's hard disk corruption or a disk is about to fail, if Secure Boot is misconfigured, if you'd be better served by the NVIDIA or another image for hardware compatibility, etc...
 - A library for Qt/C++ that abstracts over bootc (and other things), asynchronously with QCoro/C++20 coroutines, which these utilities can be built upon.
